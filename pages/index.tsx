@@ -1,8 +1,19 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import { getAllPosts } from '../lib/notionAPI';
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const allPosts = await getAllPosts(); // notionAPI.tsのgetAllPosts関数を呼び出す
+
+  return {
+    props: {
+      allPosts,
+    },
+    revalidate: 60 * 60 * 24, // ISRでビルド。24時間ごとに再更新する
+  };
+};
+
+export default function Home({allPosts}) {
+  console.log(allPosts);
   return (
     <div>
       <Head>
