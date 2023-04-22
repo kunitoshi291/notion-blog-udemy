@@ -3,10 +3,10 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <nav className='container mx-auto px-2 px-5 lg:w-2/5 ' >
+    <nav className='container mx-auto px-2 lg:w-2/5 ' >
         <div className='container flex items-center justify-between mx-auto'>
             <Link href="/" className= 'text-2xl font-medium'>
-                TakeKuni
+                トシのブログ
             </Link>
             <div>
                 <ul className='flex items-center text-sm py-4'>
