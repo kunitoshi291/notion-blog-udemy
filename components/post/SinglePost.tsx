@@ -19,7 +19,7 @@ const SinglePost = (props: Props) => {
     hover:translate-y-1 transition-all">
         <div className='flex item-center gap-3'>
             <h2 className='text-gray-100 text-2xl font-medium mb-2'>
-              <Link href={`/posts${slug}`} >{title}</Link>
+              <Link href={`/posts/${slug}`} >{title}</Link>
             </h2>
             <div className='text-gray-100'>{date}</div>
             {tags.map((tag) => (
