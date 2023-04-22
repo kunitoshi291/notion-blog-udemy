@@ -19,6 +19,26 @@ export const getAllPosts = async () => {
     });
 }
 
+export const getSinglePost = async (slug) => {
+    const response = await notion.databases.query({
+        database_id: process.env.NOTION_DATABASE_ID,
+        filter: {
+            property: "Slug",
+            formula: {
+                string: {
+                    equals: slug,
+                },
+            },
+        },
+    });
+    const page = response.results[0];
+    const metaData = getPageMetaData(page);
+    console.log(metaData);
+    return{
+        metaData
+    }
+};
+
 const getPageMetaData = (post) => {
     // tagを取得するために、map関数を使う
     const getTags = (tags) => {
